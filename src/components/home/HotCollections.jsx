@@ -6,6 +6,22 @@ import axios from "axios";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 
+
+const SkeletonSlide = () => (
+  <div className="keen-slider__slide">
+    <div className="nft_coll skeleton-card">
+      <div className="nft_wrap skeleton-box skeleton-image" />
+      <div className="nft_coll_pp">
+        <div className="skeleton-box skeleton-avatar" />
+      </div>
+      <div className="nft_coll_info">
+        <div className="skeleton-box skeleton-title" />
+        <div className="skeleton-box skeleton-subtitle" />
+      </div>
+    </div>
+  </div>
+);
+
 const HotCollections = () => {
   const [collections, setCollections] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -45,7 +61,7 @@ const HotCollections = () => {
 
   useEffect(() => {
     instanceRef.current?.update();
-  }, [collections, instanceRef]);
+  }, [collections, loading, instanceRef]);
   return (
     <section id="section-collections" className="no-bottom">
       <div className="container">
@@ -59,7 +75,11 @@ const HotCollections = () => {
         </div>
 
         <div ref={sliderRef} className="keen-slider">
-          {collections.map((collection) => (
+          {loading
+          ? Array.from({length: 4}).map((_, index) => (
+            <SkeletonSlide key={index} />
+          ))
+          : collections.map((collection) => (
             <div className="keen-slider__slide" key={collection.id}>
               <div className="nft_coll">
                 <div className="nft_wrap">
