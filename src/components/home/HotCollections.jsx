@@ -79,15 +79,15 @@ const HotCollections = () => {
           ? Array.from({length: 4}).map((_, index) => (
             <SkeletonSlide key={index} />
           ))
-          : collections.map((collection) => (
-            <div className="keen-slider__slide" key={collection.id}>
+          : collections.map((item) => (
+            <div className="keen-slider__slide" key={item.id}>
               <div className="nft_coll">
                 <div className="nft_wrap">
-                  <Link to={`/item-details/${collection.nftId}`}>
+                  <Link to={`/item-details/${item.nftId}`} state={{ item }}>
                     <img
-                      src={collection.nftImage}
+                      src={item.nftImage}
                       className="lazy img-fluid"
-                      alt={collection.title}
+                      alt={item.title}
                     />
                   </Link>
                 </div>
@@ -95,7 +95,7 @@ const HotCollections = () => {
                   <Link to="/author">
                     <img
                       className="lazy pp-coll"
-                      src={collection.authorImage}
+                      src={item.authorImage}
                       alt="author-image"
                     />
                   </Link>
@@ -103,9 +103,9 @@ const HotCollections = () => {
                 </div>
                 <div className="nft_coll_info">
                   <Link to="/explore">
-                    <h4>{collection.title}</h4>
+                    <h4>{item.title}</h4>
                   </Link>
-                  <span>ERC-{collection.code}</span>
+                  <span>ERC-{item.code}</span>
                 </div>
               </div>
             </div>
