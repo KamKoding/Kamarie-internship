@@ -79,8 +79,13 @@ const HotCollections = () => {
           ? Array.from({length: 4}).map((_, index) => (
             <SkeletonSlide key={index} />
           ))
+<<<<<<< HEAD
           : collections.map((item) => (
             <div className="keen-slider__slide" key={item.id}>
+=======
+          : collections.map((collection) => (
+            <div className="keen-slider__slide" key={collection.id}>
+>>>>>>> 337c96d64e1afdaa053231a6c48d7d0b4d1256e9
               <div className="nft_coll">
                 <div className="nft_wrap">
                   <Link to={`/item-details/${item.nftId}`} state={{ item }}>
