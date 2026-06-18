@@ -107,7 +107,6 @@ const NewItems = () => {
       });
   }, []);
 
-  // Re-measure the slider once items have actually loaded into the DOM
   useEffect(() => {
     if (!loading) {
       instanceRef.current?.update();
