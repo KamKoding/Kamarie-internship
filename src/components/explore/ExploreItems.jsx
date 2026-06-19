@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
 const Countdown = ({ expiryDate }) => {
-  const getTimeLeft = () => new Date(expiryDate).getTime() - Date.now();
+  const getTimeLeft = useCallback(() => {
+    return new Date(expiryDate).getTime() - Date.now();
+  }, [expiryDate]);
+  
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
 
   useEffect(() => {

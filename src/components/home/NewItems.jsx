@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 
 const Countdown = ({ expiryDate }) => {
-  const getTimeLeft = () => new Date(expiryDate).getTime() - Date.now();
+  const getTimeLeft = useCallback(() => {
+    return new Date(expiryDate).getTime() - Date.now();
+  }, [expiryDate]);
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
 
   useEffect(() => {
@@ -125,7 +127,10 @@ const NewItems = () => {
           </div>
 
           <div className="col-lg-12">
-            <div className="keen-slider-wrapper" style={{ position: "relative" }}>
+            <div
+              className="keen-slider-wrapper"
+              style={{ position: "relative" }}
+            >
               <div ref={sliderRef} className="keen-slider">
                 {loading
                   ? Array.from({ length: 8 }).map((_, index) => (
@@ -158,13 +163,26 @@ const NewItems = () => {
                                 <div className="nft__item_share">
                                   <h4>Share</h4>
                                   {/* eslint-disable jsx-a11y/anchor-is-valid */}
-                                  <a href="#" onClick={(e) => e.preventDefault()} target="_blank" rel="noreferrer">
+                                  <a
+                                    href="#"
+                                    onClick={(e) => e.preventDefault()}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                  >
                                     <i className="fa fa-facebook fa-lg"></i>
                                   </a>
-                                  <a href="#" onClick={(e) => e.preventDefault()} target="_blank" rel="noreferrer">
+                                  <a
+                                    href="#"
+                                    onClick={(e) => e.preventDefault()}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                  >
                                     <i className="fa fa-twitter fa-lg"></i>
                                   </a>
-                                  <a href="#" onClick={(e) => e.preventDefault()}>
+                                  <a
+                                    href="#"
+                                    onClick={(e) => e.preventDefault()}
+                                  >
                                     <i className="fa fa-envelope fa-lg"></i>
                                   </a>
                                   {/* eslint-disable jsx-a11y/anchor-is-valid */}
