@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
 
 const SkeletonCard = () => (
   <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12">
