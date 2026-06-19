@@ -98,7 +98,7 @@ const ExploreItems = () => {
     if (!loading) {
       setTimeout(() => {
         Aos.init({
-          offset: 0, 
+          offset: 0,
           duration: 800,
           once: true,
         });
@@ -160,15 +160,27 @@ const ExploreItems = () => {
                       <button>Buy Now</button>
                       <div className="nft__item_share">
                         <h4>Share</h4>
-                        <a href="#" onClick={(e) => e.preventDefault()} target="_blank" rel="noreferrer">
+                        {/* eslint-disable jsx-a11y/anchor-is-valid */}
+                        <a
+                          href="#"
+                          onClick={(e) => e.preventDefault()}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           <i className="fa fa-facebook fa-lg"></i>
                         </a>
-                        <a href="#" onClick={(e) => e.preventDefault()} target="_blank" rel="noreferrer">
+                        <a
+                          href="#"
+                          onClick={(e) => e.preventDefault()}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           <i className="fa fa-twitter fa-lg"></i>
                         </a>
                         <a href="#" onClick={(e) => e.preventDefault()}>
                           <i className="fa fa-envelope fa-lg"></i>
                         </a>
+                        {/* eslint-disable jsx-a11y/anchor-is-valid */}
                       </div>
                     </div>
                   </div>

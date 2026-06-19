@@ -157,6 +157,7 @@ const NewItems = () => {
                                 <button>Buy Now</button>
                                 <div className="nft__item_share">
                                   <h4>Share</h4>
+                                  {/* eslint-disable jsx-a11y/anchor-is-valid */}
                                   <a href="#" onClick={(e) => e.preventDefault()} target="_blank" rel="noreferrer">
                                     <i className="fa fa-facebook fa-lg"></i>
                                   </a>
@@ -166,6 +167,7 @@ const NewItems = () => {
                                   <a href="#" onClick={(e) => e.preventDefault()}>
                                     <i className="fa fa-envelope fa-lg"></i>
                                   </a>
+                                  {/* eslint-disable jsx-a11y/anchor-is-valid */}
                                 </div>
                               </div>
                             </div>
