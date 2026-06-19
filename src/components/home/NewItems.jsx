@@ -15,7 +15,7 @@ const Countdown = ({ expiryDate }) => {
       setTimeLeft(getTimeLeft());
     }, 1000);
     return () => clearInterval(interval);
-  }, [expiryDate]);
+  }, [expiryDate, getTimeLeft]);
 
   if (timeLeft <= 0) {
     return <div className="de_countdown">Expired</div>;

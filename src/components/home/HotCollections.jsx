@@ -23,7 +23,6 @@ const SkeletonSlide = () => (
 const HotCollections = () => {
   const [collections, setCollections] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   const [sliderRef, instanceRef] = useKeenSlider({
     loop: true,
@@ -52,7 +51,6 @@ const HotCollections = () => {
       })
       .catch((err) => {
         console.error("error fetching hot collections:", err);
-        setError(err);
         setLoading(false);
       });
   }, []);
