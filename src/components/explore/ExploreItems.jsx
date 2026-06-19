@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Countdown = ({ expiryDate }) => {
   const getTimeLeft = () => new Date(expiryDate).getTime() - Date.now();
@@ -95,6 +97,18 @@ const ExploreItems = () => {
   }, [sortOption]);
 
   useEffect(() => {
+    if (!loading) {
+      setTimeout(() => {
+        Aos.init({
+          offset: 0, 
+          duration: 800,
+          once: true,
+        });
+      }, 100);
+    }
+  }, [loading]);
+
+  useEffect(() => {
     setVisibleCount(INITIAL_VISIBLE);
   }, [sortOption]);
 
@@ -127,6 +141,7 @@ const ExploreItems = () => {
               key={item.id}
               className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
               style={{ display: "block", backgroundSize: "cover" }}
+              data-aos="fade-up"
             >
               <div className="nft__item">
                 <div className="author_list_pp">
